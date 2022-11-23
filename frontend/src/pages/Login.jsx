@@ -26,6 +26,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        
         const loginData = {
             email,
             password
