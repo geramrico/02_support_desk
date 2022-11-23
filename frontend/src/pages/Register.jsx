@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom'
 import { FaUser } from "react-icons/fa";
 import { toast } from "react-hot-toast"
-
+import Spinner from '../components/Spinner'
 
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -62,6 +62,11 @@ function Register() {
             //Send action to storage 
             dispatch(register(userData))
         }
+    }
+    
+
+    if (isLoading) {
+        return <Spinner />
     }
 
 

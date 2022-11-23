@@ -9,13 +9,31 @@ const register = async (userData) => {
     if (response.data) {
         //Local storage con only hold strings. 
         localStorage.setItem('user', JSON.stringify(response.data))
-        console.log(response.data);
+
     }
     return response.data
 }
 
+const login = async (userData) => {
+    const response = await axios.post(API_URL + '/login', userData)
+    if (response.data) {
+        //Local storage con only hold strings. 
+        localStorage.setItem('user', JSON.stringify(response.data))
+        localStorage.setItem('token', JSON.stringify(response.data.token))
+       
+    }
+    return response.data
+}
+
+const logout = () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+}
+
 const authService = {
-    register
+    register,
+    login,
+    logout
 }
 
 export default authService

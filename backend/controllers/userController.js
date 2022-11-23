@@ -63,6 +63,7 @@ const loginUser = asyncHandler(async (req, res) => {
             token: generateToken(user._id)
         })
     } else {
+        res.status(401)
         throw new ExpressError(401, 'A001', 'Invalid Credentials')
     }
 
