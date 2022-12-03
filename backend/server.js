@@ -16,8 +16,13 @@ app.use(express.json()) //JSON
 app.use(express.urlencoded({extended:false})) //Form
 
 // API Routes
+//User Routes
 const userRoutes = require('./routes/userRoutes')
 app.use('/api/users', userRoutes)
+
+// Ticket Routes
+const ticketRoutes = require('./routes/ticketRoutes')
+app.use('/api/tickets', ticketRoutes)
 
 app.use(errorHandler)
 

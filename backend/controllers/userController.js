@@ -20,11 +20,11 @@ const registerUser = asyncHandler(async (req, res) => {
     //Find if user exists
     const userExists = await User.findOne({ email })
     if (userExists) {
-        
+
         //Manually added error because it wasnt returning the wanted 400 http status
         res.status(400)
-        throw new ExpressError(400,'User exists','User already exists')
-        
+        throw new ExpressError(400, 'User exists', 'User already exists')
+
     }
 
     // Hash password
@@ -79,6 +79,7 @@ const getMe = asyncHandler(async (req, res) => {
         id: req.user._id,
         name: req.user.name,
         email: req.user.email,
+        tickets: req.user.tickets
     }
     res.status(200).json(user)
 
