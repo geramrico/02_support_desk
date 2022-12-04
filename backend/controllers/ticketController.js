@@ -4,8 +4,6 @@ const asyncHandler = require('../utils/asyncHandler')
 const ExpressError = require('../utils/ExpressError')
 
 
-
-
 //@desc     Get user tickets
 //@route    GET /api/tickets
 //@access   Private
