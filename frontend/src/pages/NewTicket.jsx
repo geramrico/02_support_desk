@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast"
 import { createTicket, reset } from '../features/tickets/ticketSlice'
 
 import Spinner from '../components/Spinner'
+import BackButton from '../components/BackButton'
 
 function NewTicket() {
 
@@ -43,6 +44,7 @@ function NewTicket() {
 
     return (
         <>
+        <BackButton url={'/'}/>
             {/*Heading Section*/}
             <section className="heading">
                 <h1>
@@ -72,7 +74,8 @@ function NewTicket() {
                             value={product}
                             onChange={(e) => setProduct(e.target.value)}>
 
-                            <option value="iPhone" selected>iPhone</option>
+                            <option value="">Select a product</option>
+                            <option value="iPhone">iPhone</option>
                             <option value="Macbook Pro">Macbook Pro</option>
                             <option value="iPad Air">iPad Air</option>
                             <option value="iPod">iPod</option>
