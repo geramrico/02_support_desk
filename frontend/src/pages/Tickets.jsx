@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { getTickets, reset } from '../features/tickets/ticketSlice'
+
+import { toast } from "react-hot-toast"
 
 import Spinner from '../components/Spinner'
 import BackButton from '../components/BackButton'
@@ -11,7 +12,7 @@ import TicketItem from '../components/TicketItem'
 
 const Tickets = () => {
 
-    const { isLoading, isSuccess, tickets } = useSelector(state => state.ticket)
+    const { isLoading, isSuccess, tickets, isError, message } = useSelector(state => state.ticket)
 
     const dispatch = useDispatch()
     //const navigate = useNavigate()
@@ -25,15 +26,14 @@ const Tickets = () => {
     }, [dispatch, isSuccess])
 
     useEffect(() => {
-
+        if (isError) { toast.error(message) }
         dispatch(getTickets())
-
-    }, [dispatch])
+        //eslint-disable-next-line
+    }, [dispatch, isError, message])
 
     if (isLoading) {
         return <Spinner />
     }
-    console.log(tickets)
 
     return (
         <>

@@ -18,7 +18,7 @@ function Login() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const { user, isError, isSuccess, message, isLoading } = useSelector(state => state.auth)
+    const { user, isError, message, isLoading } = useSelector(state => state.auth)
 
     useEffect(() => {
 
@@ -31,7 +31,7 @@ function Login() {
         }
 
         dispatch(reset())
-
+    // eslint-disable-next-line
     }, [user, isError, message])
 
     const handleInputChange = (event) => {
