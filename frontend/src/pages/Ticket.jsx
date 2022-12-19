@@ -28,7 +28,7 @@ const Ticket = () => {
         if (isError) { toast.error(message) }
 
         dispatch(getTicket(ticketId))
-        
+
     }, [dispatch, isError, message, ticketId])
 
     if (isLoading) {
