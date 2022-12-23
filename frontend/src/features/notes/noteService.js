@@ -9,7 +9,7 @@ const createNote = async (ticketId, noteText, token) => {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.post(API_URL + `/${ticketId}/notes`, noteText, config)
+    const response = await axios.post(API_URL + `/${ticketId}/notes`, { text: noteText }, config)
 
     return response.data
 }
