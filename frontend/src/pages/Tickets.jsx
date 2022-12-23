@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTickets, reset } from '../features/tickets/ticketSlice'
 
@@ -7,7 +7,6 @@ import { toast } from "react-hot-toast"
 import Spinner from '../components/Spinner'
 import BackButton from '../components/BackButton'
 import TicketItem from '../components/TicketItem'
-
 
 
 const Tickets = () => {
